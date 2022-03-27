@@ -2,7 +2,7 @@
 import { Piece } from '../classes/piece';
 
 // Util
-import { _PIECES, _COLORS, _SPECIAL_NOTATION } from '../utility/interfaces';
+import { _PIECES, _COLORS, _SPECIAL_NOTATION, _COLOR_OBJ } from '../utility/interfaces';
 
 export const PIECES: _PIECES = {
     PAWN  : {type: 'pawn',   key: ''},
@@ -44,8 +44,8 @@ export const EMPTY_STATE: Array<Array<null>> = [
     new Array(8).fill(null)
 ];
 
-const BLACK = {color: COLORS.BLACK.name};
-const WHITE = {color: COLORS.WHITE.name};
+const BLACK: _COLOR_OBJ = {color: COLORS.BLACK.name};
+const WHITE: _COLOR_OBJ = {color: COLORS.WHITE.name};
 
 export const DEFAULT_STATE: Array<Array<Piece|null>> = [
     [

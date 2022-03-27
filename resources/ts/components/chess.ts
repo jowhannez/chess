@@ -17,7 +17,7 @@ export default {
         this.renderer.render();
     },
     test() {
-        const worldsFastestMate = [
+        const worldsFastestMate: Array<Array<string>> = [
             ['f2', 'f3'],
             ['e7', 'e5'],
             ['g2', 'g4'],

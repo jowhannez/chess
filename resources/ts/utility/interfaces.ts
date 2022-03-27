@@ -47,3 +47,7 @@ export interface _RENDER_CONFIG {
     fill: string;
     piece?: Piece;
 }
+
+export interface _COLOR_OBJ {
+    color: string
+}
