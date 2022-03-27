@@ -16,12 +16,8 @@ npm run dev
 - [x] Simple automatic game rendering
 - [ ] Check if a move is legal
 - [ ] Better indication when a piece is selected
-- [ ] Arrows
-- [ ] Jupiter
-- [ ] Saturn
-- [ ] Uranus
-- [ ] Neptune
-- [ ] Comet Haley
+- [ ] Drawing arrows
+- [ ] Checkmate / stalemate checks
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
