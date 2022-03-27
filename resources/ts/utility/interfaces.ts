@@ -32,7 +32,9 @@ export interface _SPECIAL_NOTATION {
 
 export interface _CONFIG {
     type : string,
-    color: string
+    color: string,
+    key ?: string,
+    element?: HTMLElement
 }
 
 export interface _COORDINATES {

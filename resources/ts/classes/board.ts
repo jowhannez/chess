@@ -6,8 +6,9 @@ import { DEFAULT_STATE } from '../utility/constants';
 import { _COORDINATES } from '../utility/interfaces';
 
 export class Board {
-    state: Array<Array<Piece|null>> = DEFAULT_STATE;
-    move : number = 1;
+    state    : Array<Array<Piece|null>> = DEFAULT_STATE;
+    whiteMove: number = 1;
+    blackMove: number = 1;
 
     setState(state: Array<Array<Piece|null>>) {
         if (state.length !== 8 || state.some(row => row.length !== 8)) {
@@ -43,7 +44,7 @@ export class Board {
         return this.state[coords.y][coords.x];
     }
 
-    movePiece(from: string, to: string) {
+    movePiece(from: string, to: string, size: number) {
         if (!this._legalPosition(from)) {
             throw new Error(`'${from}' Is an illegal position`);
         }
@@ -59,10 +60,15 @@ export class Board {
             throw new Error(`Can't move ${piece.type} to ${to}`);
         }
 
-        this.removePiece(from);
-        this.addPiece(piece, to);
-        console.log(`${Math.floor(this.move)}: ${piece.key}${to}`);
-        this.move += 0.5;
+        piece.element.style.top  = `${this._getCoordinates(to).y * size}px`;
+        piece.element.style.left = `${this._getCoordinates(to).x * size}px`;
+        
+        console.log(`${Math.floor(piece.color === 'white' ? this.whiteMove : this.blackMove)}: ${piece.key}${to}`);
+        if (piece.color === 'white') {
+            this.whiteMove++;
+        } else {
+            this.blackMove++;
+        }
     }
 
     _legalPosition(pos: string) {
