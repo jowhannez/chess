@@ -4,7 +4,7 @@ import { Board } from './board';
 
 // Util
 import { COLORS } from '../utility/constants';
-import { _RENDER_CONFIG, _CONFIG } from '../utility/interfaces';
+import { _RENDER_CONFIG, _CONFIG, _COORDINATES } from '../utility/interfaces';
 
 export class Renderer {
     board   : Board = null;
@@ -50,13 +50,16 @@ export class Renderer {
             const x: number = event.offsetX;
             const y: number = event.offsetY;
             const square: string = this.getSquare(x, y);
-
+            const coords: Array<number> = this.getSquareCoordinates(x, y);
+            
             if (!this.selected) {
                 this.selected = square;
-            } else if (this.selected === square) {
-                this.selected = '';
+                this.highlight(coords[0], coords[1]);
             } else {
-                this.board.movePiece(this.selected, square);
+                const piece: Piece|null = this.board.getPiece(this.selected);
+                if (piece) {
+                    this.board.movePiece(this.selected, square);
+                }
                 this.selected = '';
                 this.render();
             }
@@ -93,5 +96,16 @@ export class Renderer {
         ].join('');
 
         return square;
+    }
+
+    getSquareCoordinates(x: number, y: number) {
+        return [
+            Math.floor(x / this.size) * this.size,
+            Math.floor(y / this.size) * this.size
+        ];
+    }
+
+    highlight(x: number, y: number) {
+        this.drawSquare({x, y, fill: '#00ff0020', size: this.size })
     }
 }

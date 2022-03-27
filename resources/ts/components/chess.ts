@@ -10,7 +10,7 @@ export default {
         this.render();
 
         // Test some moves programatically
-        this.test();
+        // this.test();
     },
     render() {
         this.renderer = new Renderer(this.board);
@@ -24,7 +24,7 @@ export default {
             ['d8', 'h4']
         ];
 
-        let index = 1;
+        let index: number = 1;
         for (const move of worldsFastestMate) {
             setTimeout(() => {
                 this.board.movePiece(...move);
