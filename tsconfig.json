@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "suppressImplicitAnyIndexErrors": true,
+    "strictNullChecks": false,
+    "lib": [
+        "es6", "es5", "es2015.core", "dom"
+    ],
+    "moduleResolution": "node",
+    "outDir": "dist"
+  }
+}
