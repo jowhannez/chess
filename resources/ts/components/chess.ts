@@ -5,7 +5,6 @@ import { Renderer } from '../classes/renderer';
 export default {
     board   : new Board(),
     renderer: null,
-    size    : 8,
     init() {
         this.render();
 
@@ -27,7 +26,7 @@ export default {
         let index: number = 1;
         for (const move of worldsFastestMate) {
             setTimeout(() => {
-                this.board.movePiece(...move, 80);
+                this.board.movePiece(...move);
             }, index * 750);
             index++;
         }

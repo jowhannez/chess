@@ -4,6 +4,8 @@ import { Piece } from '../classes/piece';
 // Util
 import { _PIECES, _COLORS, _SPECIAL_NOTATION, _COLOR_OBJ } from '../utility/interfaces';
 
+export const SIZE: number = 80;
+
 export const PIECES: _PIECES = {
     PAWN  : {type: 'pawn',   key: ''},
     ROOK  : {type: 'rook',   key: 'R'},

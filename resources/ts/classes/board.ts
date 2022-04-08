@@ -2,7 +2,7 @@
 import { Piece } from './piece';
 
 // Util
-import { DEFAULT_STATE } from '../utility/constants';
+import { DEFAULT_STATE, SIZE } from '../utility/constants';
 import { _COORDINATES } from '../utility/interfaces';
 
 export class Board {
@@ -44,7 +44,7 @@ export class Board {
         return this.state[coords.y][coords.x];
     }
 
-    movePiece(from: string, to: string, size: number) {
+    movePiece(from: string, to: string) {
         if (!this._legalPosition(from)) {
             throw new Error(`'${from}' Is an illegal position`);
         }
@@ -60,8 +60,8 @@ export class Board {
             throw new Error(`Can't move ${piece.type} to ${to}`);
         }
 
-        piece.element.style.top  = `${this._getCoordinates(to).y * size}px`;
-        piece.element.style.left = `${this._getCoordinates(to).x * size}px`;
+        piece.element.style.top  = `${this._getCoordinates(to).y * SIZE}px`;
+        piece.element.style.left = `${this._getCoordinates(to).x * SIZE}px`;
         
         console.log(`${Math.floor(piece.color === 'white' ? this.whiteMove : this.blackMove)}: ${piece.key}${to}`);
         if (piece.color === 'white') {
