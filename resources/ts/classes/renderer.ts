@@ -47,7 +47,7 @@ export class Renderer {
             const x: number = event.offsetX;
             const y: number = event.offsetY;
             const square: string = this.getSquare(x, y);
-            const coords: Array<number> = this.getSquareCoordinates(x, y);
+            //const coords: Array<number> = this.getSquareCoordinates(x, y);
             
             if (!this.selected) {
                 this.selected = square;
@@ -105,7 +105,7 @@ export class Renderer {
         return square;
     }
 
-    getSquareCoordinates(x: number, y: number) {
+    /* getSquareCoordinates(x: number, y: number) {
         return [
             Math.floor(x / SIZE) * SIZE,
             Math.floor(y / SIZE) * SIZE
@@ -114,5 +114,5 @@ export class Renderer {
 
     highlight(x: number, y: number) {
         this.drawSquare({x, y, fill: '#00ff0020', size: SIZE })
-    }
+    } */
 }
